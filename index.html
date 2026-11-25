@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invigilation Duty Lookup — LBSITW, Thiruvananthapuram</title>
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --teal: #0d9488;
+    --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 50%, #ccfbf1 100%);
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #cbd5e1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text);
+    margin: 0;
+    padding: 20px 16px;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--card);
+    padding: 0 0 24px 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+  }
+  header {
+    background: linear-gradient(120deg, #1e3a8a 0%, #2563eb 60%, #0d9488 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 20px 20px 20px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 1.28rem;
+    margin: 0 0 6px 0;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    color: #dbeafe;
+    margin: 0;
+    font-weight: 500;
+  }
+  .notice {
+    background: linear-gradient(to right, #fffbeb, #fef3c7);
+    border: 1px solid #fcd34d;
+    border-left: 5px solid #f59e0b;
+    color: #92400e;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    max-width: 560px;
+    margin: 0 auto 22px auto;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12);
+  }
+  .card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #2563eb;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 0 22px 20px 22px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  .card-box:last-of-type {
+    border-top-color: #0d9488;
+    margin-bottom: 0;
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.96rem;
+    margin-bottom: 10px;
+    color: #1e3a8a;
+  }
+  .card-box:last-of-type label {
+    color: #0f766e;
+  }
+  select, input {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 0.98rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  select:focus, input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+  .card-box:last-of-type select:focus {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+  }
+  input {
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+  }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    margin-top: 14px;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  }
+  .card-box:last-of-type .badge {
+    background: linear-gradient(135deg, #0d9488, #0f766e);
+    box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+  }
+  li {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.94rem;
+    transition: transform 0.15s, background-color 0.15s;
+  }
+  .card-box:last-of-type li {
+    border-left-color: #14b8a6;
+  }
+  li:hover {
+    background: #eff6ff;
+    transform: translateX(3px);
+  }
+  .card-box:last-of-type li:hover {
+    background: #f0fdfa;
+  }
+  .empty {
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 12px;
+    font-size: 0.92rem;
+  }
+  @media (max-width: 520px) {
+    .card-box { margin: 0 14px 16px 14px; }
+    .notice { margin: 0 14px 18px 14px; }
+  }
+  @media (max-width: 520px) {
+    .card-box { margin: 0 14px 16px 14px; }
+    .notice { margin: 0 14px 18px 14px; }
+  }
+  /* Hide Netlify Drop badge */
+  a[href*="utm_source=create-netlify-drop"],
+  a[href*="netlify.com"][style*="fixed"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>LBS Institute of Technology for Women (LBSITW), Thiruvananthapuram</h1>
+    <p class="subtitle">KTU B.Tech Examination Invigilation Duty List (Nov 2026 – Feb 2027)</p>
+  </header>
+
+  <div class="notice">
+    <strong>Reporting Time:</strong> 09:15 AM for FN and 01:15 PM for AN (01:40 PM on Fridays).
+  </div>
+
+  <div class="card-box">
+    <label for="facultySearch">1. Search by Invigilator Name</label>
+    <input type="text" id="facultySearch" placeholder="Type name to filter list..." oninput="filterFacultyDropdown()">
+    <select id="facultySelect" onchange="showFacultyDuties()">
+      <option value="">-- Select Invigilator --</option>
+    </select>
+    <div id="facultyResult"></div>
+  </div>
+
+  <div class="card-box">
+    <label for="sessionSelect">2. Search by Exam Date &amp; Session</label>
+    <select id="sessionSelect" onchange="showSessionFaculty()">
+      <option value="">-- Select Date / Session --</option>
+    </select>
+    <div id="sessionResult"></div>
+  </div>
+</div>
+
+<script>
+  const scheduleData = {"facultyList": ["1. Dr. DEEPAMBIKA V A", "2. Dr. RESMI R", "3. Dr. MERIL CYRIAC", "4. Dr. SUMA SEKHAR", "5. Dr. REENA M ROY", "6. Prof. SMITHA K S", "7. Dr. KANJANA G", "8. Prof. MOHAMMED SHAFFI", "9. Prof. HEMA S", "10. Dr. DEEPESH EDWIN", "11. Prof. JAYARESMI J", "12. Prof. NISHANTH AUGUSTINE", "13. Prof. RENSI SAM MATHEW", "14. Prof. ASWATHY DEVI T", "15. Dr. NAVEEN S", "16. Sri. DINESHKUMAR D J", "17. Sri. VIKAS V R", "18. Sri. ABDUL SALAM K Y", "19. Sri. SEBASTIAN T V", "20. Smt. SHIJITHA R", "21. Smt. SMITHA S", "22. Dr. SAMLA SALIM", "23. Prof. PARVATHI V S", "24. Prof. JAGANATH L C", "25. Prof. ASWATHY S", "26. Prof. SOUMYA S M", "27. Prof. CHITHRA A S", "28. Dr. SMITHA E S", "29. Dr. SUMITHRA M D", "30. Dr. ANITHAKUMARI S", "31. Dr. SMITHA VAS", "32. Dr. DILEEP V K", "33. Prof. SEENA THOMAS", "34. Dr. LEKSHMY P L", "35. Prof. JANISHA A", "36. Prof. DILIYA M KHAN", "37. Prof. SUMIMOL L", "38. Prof. GISHA G S", "39. Prof. PRAJISHA K", "40. Prof, SANDEEP CHANDRAN", "41. Sri. ANIL KUMAR T K", "42. Smt. RAJAPRIYA R", "43. Smt. SHEEJA D", "44. Prof. REHNA R S", "45. Prof. ARATHY S S", "46. Prof. BIJI S L", "47. Prof. ATHIRA A P", "48. Prof. DHANYA S", "49. Prof. SREEJA KUMARI JAYA", "50. Prof. POORNIMA E", "51. Prof. PRIYANKA S R", "52. Prof. AMITHA K A", "53. Prof. ANSILA HENDERSON", "54. Prof. VIJITHRA V K", "55. Prof. JIJI C T", "56. Prof. SHAMEEMA LATHEEF", "57. Prof. DIVYA R S", "58. Prof. RAJI P S", "59. Prof. ANJU L V", "60. Prof. KAVYA MOHAN", "61. Prof. TEENU S JOHN", "62. Prof. ARYA J G", "64. Prof. ARUNIMA AJEESH", "65. Prof. RESHMA J P", "66. Prof. NIKHILA A", "67. Prof. APARNA V DEV", "68. Dr. SAJAN K JOSE", "69. Prof. RADHIKA NAIR N J", "70. Dr. BEENA MOL M", "71. Sri. SREENIVASAN V R", "72. Prof. DEEPTHY B L", "73. Prof. ABDUL RAHIM S R", "74. Prof. RESHMA M", "75. Prof. PB MUHAMMAD ANAS", "76. Prof. NEEMA THERESE", "77. Prof.ASHLY JOY", "78. Prof. REJITHA S R", "79. Prof. DEEPTHI CHANDRAN R", "80. Dr. KEERTHI V S", "81. Prof. LEKSHMI S", "82. Dr ARCHANA S NAIR", "83. Prof. PRASOON P", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "86. DR. SANDHYA C P", "87. Prof. JOSEPH JOHN THARAKAN", "88. Prof. THASLEEMA NAZAR", "89. Dr. ANILKUMAR E N", "90. Sri. VIBIN KUMAR C S", "91. Sri. GOPAKUMAR G", "92. Dr. SHEEJA V", "93. Sri. DEEPAK SEN J S"], "sessionList": ["23.11.26 (Mon) — FN", "23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "25.11.26 (Wed) — FN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — FN", "27.11.26 (Fri) — AN", "30.11.26 (Mon) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — FN", "02.12.26 (Wed) — AN", "03.12.26 (Thur) — AN", "04.12.26 (Fri) — FN", "05.12.26 (Sat) — AN", "07.12.26 (Mon) — AN", "08.12.26 (Tue) — AN", "09.12.26 (Wed) — AN", "10.12.26 (Thurs) — AN", "11.12.26 (Fri) — AN", "14.12.26 (Mon) — FN", "14.12.26 (Mon) — AN", "15.12.26 (Tue) — FN", "16.12.26 (Wed) — AN", "17.12.26 (Thurs) — FN", "18.12.26 (Fri) — AN", "28.12.26 (Mon) — FN", "28.12.26 (Mon) — AN", "29.12.26 (Tue) — FN", "30.12.26 (Wed) — FN", "30.12.26 (Wed) — AN", "31.12.26 (Thur) — FN", "01.01.26 (Fri) — FN", "04.01.26 (Mon) — FN", "05.01.26 (Tue) — FN", "06.01.26 (Wed) — FN", "07.01.26 (Thu) — FN", "07.01.26 (Thu) — AN", "08.01.26 (Fri) — FN", "11.01.26 (Mon) — FN", "11.01.26 (Mon) — AN", "12.01.26 (Tue) — FN", "13.01.26 (Wed) — FN", "13.01.26 (Wed) — AN", "14.01.26 (Thu) — FN", "15.01.26 (Fri) — FN", "15.01.26 (Fri) — AN", "16.01.26 (Sat) — FN", "18.01.26 (Mon) — FN", "19.01.26 (Tue) — FN", "19.01.26 (Tue) — AN", "20.01.26 (Wed) — FN", "21.01.26 (Thu) — FN", "21.01.26 (Thu) — AN", "22.01.26 (Fri) — FN", "25.01.26 (Mon) — FN", "27.01.26 (Wed) — FN", "29.01.26 (Fri) — FN", "01.02.26 (Mon) — FN", "02.02.26 (Tue) — AN", "04.02.26 (Thu) — AN", "06.02.26 (Sat) — AN", "08.02.26 (Mon) — AN", "10.02.26 (Wed) — AN", "12.02.26 (Fri) — AN", "15.02.26 (Mon) — AN"], "byFaculty": {"1. Dr. DEEPAMBIKA V A": ["24.11.26 (Tue) — AN", "17.12.26 (Thurs) — FN"], "2. Dr. RESMI R": ["25.11.26 (Wed) — FN", "05.12.26 (Sat) — AN"], "3. Dr. MERIL CYRIAC": ["26.11.26 (Thur) — AN", "18.12.26 (Fri) — AN"], "4. Dr. SUMA SEKHAR": ["27.11.26 (Fri) — FN", "28.12.26 (Mon) — FN"], "5. Dr. REENA M ROY": ["23.11.26 (Mon) — FN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — FN", "05.12.26 (Sat) — AN", "05.01.26 (Tue) — FN"], "6. Prof. SMITHA K S": ["27.11.26 (Fri) — AN", "07.12.26 (Mon) — AN", "14.12.26 (Mon) — AN", "08.01.26 (Fri) — FN", "10.02.26 (Wed) — AN"], "7. Dr. KANJANA G": ["25.11.26 (Wed) — FN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — FN", "05.12.26 (Sat) — AN", "05.01.26 (Tue) — FN"], "8. Prof. MOHAMMED SHAFFI": ["25.11.26 (Wed) — FN", "27.11.26 (Fri) — AN", "02.12.26 (Wed) — AN", "03.12.26 (Thur) — AN", "11.01.26 (Mon) — FN"], "9. Prof. HEMA S": ["24.11.26 (Tue) — AN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — FN", "09.12.26 (Wed) — AN", "05.01.26 (Tue) — FN"], "10. Dr. DEEPESH EDWIN": ["23.11.26 (Mon) — FN", "24.11.26 (Tue) — AN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — AN", "11.01.26 (Mon) — FN"], "11. Prof. JAYARESMI J": ["23.11.26 (Mon) — AN", "02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "05.01.26 (Tue) — FN"], "12. Prof. NISHANTH AUGUSTINE": ["23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "25.11.26 (Wed) — FN", "27.11.26 (Fri) — FN", "08.01.26 (Fri) — FN"], "13. Prof. RENSI SAM MATHEW": ["23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — FN", "05.12.26 (Sat) — AN"], "14. Prof. ASWATHY DEVI T": ["23.11.26 (Mon) — FN", "27.11.26 (Fri) — AN", "02.12.26 (Wed) — FN", "09.12.26 (Wed) — AN", "31.12.26 (Thur) — FN"], "15. Dr. NAVEEN S": ["24.11.26 (Tue) — AN", "26.11.26 (Thur) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — FN", "14.12.26 (Mon) — FN"], "16. Sri. DINESHKUMAR D J": ["24.11.26 (Tue) — AN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — FN", "01.12.26 (Tue) — AN", "03.12.26 (Thur) — AN"], "17. Sri. VIKAS V R": ["23.11.26 (Mon) — FN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "13.01.26 (Wed) — AN"], "18. Sri. ABDUL SALAM K Y": ["02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "31.12.26 (Thur) — FN"], "19. Sri. SEBASTIAN T V": ["23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "27.11.26 (Fri) — FN", "30.11.26 (Mon) — AN", "14.12.26 (Mon) — FN"], "20. Smt. SHIJITHA R": ["23.11.26 (Mon) — FN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "31.12.26 (Thur) — FN"], "21. Smt. SMITHA S": ["23.11.26 (Mon) — FN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "11.01.26 (Mon) — AN"], "22. Dr. SAMLA SALIM": ["24.11.26 (Tue) — AN", "01.12.26 (Tue) — AN", "05.12.26 (Sat) — AN", "31.12.26 (Thur) — FN", "01.02.26 (Mon) — FN"], "23. Prof. PARVATHI V S": ["27.11.26 (Fri) — AN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "17.12.26 (Thurs) — FN", "05.01.26 (Tue) — FN"], "24. Prof. JAGANATH L C": ["01.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "31.12.26 (Thur) — FN", "12.01.26 (Tue) — FN", "20.01.26 (Wed) — FN"], "25. Prof. ASWATHY S": ["23.11.26 (Mon) — FN", "27.11.26 (Fri) — FN", "05.12.26 (Sat) — AN", "11.01.26 (Mon) — AN", "01.02.26 (Mon) — FN"], "26. Prof. SOUMYA S M": ["27.11.26 (Fri) — FN", "01.12.26 (Tue) — AN", "08.12.26 (Tue) — AN", "09.12.26 (Wed) — AN", "31.12.26 (Thur) — FN", "21.01.26 (Thu) — AN"], "27. Prof. CHITHRA A S": ["02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "05.12.26 (Sat) — AN", "05.01.26 (Tue) — FN", "13.01.26 (Wed) — AN", "04.02.26 (Thu) — AN"], "28. Dr. SMITHA E S": ["24.11.26 (Tue) — AN", "28.12.26 (Mon) — AN"], "29. Dr. SUMITHRA M D": ["25.11.26 (Wed) — FN", "29.12.26 (Tue) — FN"], "30. Dr. ANITHAKUMARI S": ["26.11.26 (Thur) — AN", "30.12.26 (Wed) — FN"], "31. Dr. SMITHA VAS": ["27.11.26 (Fri) — FN", "30.12.26 (Wed) — AN"], "32. Dr. DILEEP V K": ["24.11.26 (Tue) — AN", "02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "07.12.26 (Mon) — AN", "01.01.26 (Fri) — FN"], "33. Prof. SEENA THOMAS": ["26.11.26 (Thur) — AN", "03.12.26 (Thur) — AN", "05.12.26 (Sat) — AN", "14.12.26 (Mon) — FN", "31.12.26 (Thur) — FN"], "34. Dr. LEKSHMY P L": ["23.11.26 (Mon) — FN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — FN", "07.12.26 (Mon) — AN", "07.01.26 (Thu) — FN"], "35. Prof. JANISHA A": ["26.11.26 (Thur) — AN", "10.12.26 (Thurs) — AN", "31.12.26 (Thur) — FN", "07.01.26 (Thu) — AN"], "36. Prof. DILIYA M KHAN": [], "37. Prof. SUMIMOL L": ["23.11.26 (Mon) — FN", "30.11.26 (Mon) — AN", "07.12.26 (Mon) — AN", "12.01.26 (Tue) — FN", "13.01.26 (Wed) — FN"], "38. Prof. GISHA G S": ["25.11.26 (Wed) — FN", "02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "05.12.26 (Sat) — AN", "31.12.26 (Thur) — FN"], "39. Prof. PRAJISHA K": ["26.11.26 (Thur) — AN", "30.11.26 (Mon) — AN", "01.12.26 (Tue) — AN", "07.12.26 (Mon) — AN", "07.01.26 (Thu) — FN"], "40. Prof, SANDEEP CHANDRAN": ["24.11.26 (Tue) — AN", "02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "05.12.26 (Sat) — AN", "31.12.26 (Thur) — FN"], "41. Sri. ANIL KUMAR T K": ["05.01.26 (Tue) — FN", "13.01.26 (Wed) — FN", "20.01.26 (Wed) — FN", "08.02.26 (Mon) — AN", "15.02.26 (Mon) — AN"], "42. Smt. RAJAPRIYA R": ["23.11.26 (Mon) — AN", "30.11.26 (Mon) — AN", "05.12.26 (Sat) — AN", "10.12.26 (Thurs) — AN", "07.01.26 (Thu) — AN"], "43. Smt. SHEEJA D": ["27.11.26 (Fri) — FN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — FN"], "44. Prof. REHNA R S": ["24.11.26 (Tue) — AN", "30.11.26 (Mon) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — AN", "10.12.26 (Thurs) — AN"], "45. Prof. ARATHY S S": ["23.11.26 (Mon) — FN", "23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "25.11.26 (Wed) — FN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — FN"], "46. Prof. BIJI S L": ["25.11.26 (Wed) — FN", "27.11.26 (Fri) — FN", "02.12.26 (Wed) — AN", "05.12.26 (Sat) — AN", "15.02.26 (Mon) — AN"], "47. Prof. ATHIRA A P": ["26.11.26 (Thur) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — FN", "03.12.26 (Thur) — AN", "13.01.26 (Wed) — AN"], "48. Prof. DHANYA S": ["23.11.26 (Mon) — AN", "26.11.26 (Thur) — AN", "10.12.26 (Thurs) — AN", "05.01.26 (Tue) — FN", "04.02.26 (Thu) — AN"], "49. Prof. SREEJA KUMARI JAYA": ["23.11.26 (Mon) — AN", "02.12.26 (Wed) — FN", "05.12.26 (Sat) — AN", "31.12.26 (Thur) — FN", "13.01.26 (Wed) — AN"], "50. Prof. POORNIMA E": ["25.11.26 (Wed) — FN", "30.11.26 (Mon) — AN", "01.12.26 (Tue) — AN", "08.12.26 (Tue) — AN"], "51. Prof. PRIYANKA S R": ["23.11.26 (Mon) — AN", "27.11.26 (Fri) — FN", "05.12.26 (Sat) — AN", "08.12.26 (Tue) — AN", "05.01.26 (Tue) — FN"], "52. Prof. AMITHA K A": ["24.11.26 (Tue) — AN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "10.02.26 (Wed) — AN"], "53. Prof. ANSILA HENDERSON": ["27.11.26 (Fri) — FN", "01.12.26 (Tue) — AN", "05.12.26 (Sat) — AN", "07.12.26 (Mon) — AN"], "54. Prof. VIJITHRA V K": ["27.11.26 (Fri) — AN", "08.12.26 (Tue) — AN", "31.12.26 (Thur) — FN", "21.01.26 (Thu) — FN", "08.02.26 (Mon) — AN"], "55. Prof. JIJI C T": ["23.11.26 (Mon) — AN", "27.11.26 (Fri) — FN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — AN", "05.12.26 (Sat) — AN", "09.12.26 (Wed) — AN"], "56. Prof. SHAMEEMA LATHEEF": ["25.11.26 (Wed) — FN", "26.11.26 (Thur) — AN", "07.12.26 (Mon) — AN", "05.01.26 (Tue) — FN", "18.01.26 (Mon) — FN", "21.01.26 (Thu) — AN"], "57. Prof. DIVYA R S": ["25.11.26 (Wed) — FN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — AN", "03.12.26 (Thur) — AN", "31.12.26 (Thur) — FN"], "58. Prof. RAJI P S": ["30.11.26 (Mon) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "05.01.26 (Tue) — FN", "21.01.26 (Thu) — FN"], "59. Prof. ANJU L V": ["23.11.26 (Mon) — AN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "05.01.26 (Tue) — FN", "22.01.26 (Fri) — FN"], "60. Prof. KAVYA MOHAN": ["23.11.26 (Mon) — AN", "03.12.26 (Thur) — AN", "10.12.26 (Thurs) — AN", "31.12.26 (Thur) — FN", "06.02.26 (Sat) — AN"], "61. Prof. TEENU S JOHN": ["23.11.26 (Mon) — AN", "27.11.26 (Fri) — AN", "02.12.26 (Wed) — AN", "05.12.26 (Sat) — AN", "07.12.26 (Mon) — AN", "02.02.26 (Tue) — AN"], "62. Prof. ARYA J G": ["23.11.26 (Mon) — AN", "27.11.26 (Fri) — AN", "30.11.26 (Mon) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "05.01.26 (Tue) — FN"], "64. Prof. ARUNIMA AJEESH": ["27.11.26 (Fri) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "29.01.26 (Fri) — FN", "06.02.26 (Sat) — AN"], "65. Prof. RESHMA J P": ["23.11.26 (Mon) — FN", "25.11.26 (Wed) — FN", "27.11.26 (Fri) — FN", "05.01.26 (Tue) — FN", "02.02.26 (Tue) — AN"], "66. Prof. NIKHILA A": ["26.11.26 (Thur) — AN", "27.11.26 (Fri) — AN", "02.12.26 (Wed) — AN", "07.12.26 (Mon) — AN", "31.12.26 (Thur) — FN", "06.01.26 (Wed) — FN"], "67. Prof. APARNA V DEV": ["23.11.26 (Mon) — FN", "23.11.26 (Mon) — AN", "24.11.26 (Tue) — AN", "25.11.26 (Wed) — FN", "26.11.26 (Thur) — AN", "27.11.26 (Fri) — FN"], "68. Dr. SAJAN K JOSE": [], "69. Prof. RADHIKA NAIR N J": ["23.11.26 (Mon) — AN", "08.12.26 (Tue) — AN", "14.01.26 (Thu) — FN"], "70. Dr. BEENA MOL M": ["24.11.26 (Tue) — AN", "25.11.26 (Wed) — FN", "02.12.26 (Wed) — AN", "30.12.26 (Wed) — FN", "15.01.26 (Fri) — FN"], "71. Sri. SREENIVASAN V R": ["23.11.26 (Mon) — AN", "27.11.26 (Fri) — FN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "15.01.26 (Fri) — FN"], "72. Prof. DEEPTHY B L": ["23.11.26 (Mon) — FN", "26.11.26 (Thur) — AN", "30.11.26 (Mon) — AN", "09.12.26 (Wed) — AN", "16.12.26 (Wed) — AN"], "73. Prof. ABDUL RAHIM S R": ["27.11.26 (Fri) — AN", "01.12.26 (Tue) — AN", "02.12.26 (Wed) — AN", "29.12.26 (Tue) — FN", "04.01.26 (Mon) — FN"], "74. Prof. RESHMA M": ["23.11.26 (Mon) — FN", "27.11.26 (Fri) — AN", "30.12.26 (Wed) — AN", "05.01.26 (Tue) — FN", "25.01.26 (Mon) — FN"], "75. Prof. PB MUHAMMAD ANAS": ["02.12.26 (Wed) — FN", "29.12.26 (Tue) — FN", "15.01.26 (Fri) — AN", "12.02.26 (Fri) — AN"], "76. Prof. NEEMA THERESE": ["26.11.26 (Thur) — AN", "27.11.26 (Fri) — AN", "02.12.26 (Wed) — AN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "14.01.26 (Thu) — FN"], "77. Prof.ASHLY JOY": ["07.12.26 (Mon) — AN", "08.12.26 (Tue) — AN", "15.12.26 (Tue) — FN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN"], "78. Prof. REJITHA S R": ["01.12.26 (Tue) — AN", "02.12.26 (Wed) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN"], "79. Prof. DEEPTHI CHANDRAN R": ["18.12.26 (Fri) — AN", "29.12.26 (Tue) — FN"], "80. Dr. KEERTHI V S": ["02.12.26 (Wed) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "15.01.26 (Fri) — AN"], "81. Prof. LEKSHMI S": ["14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "28.12.26 (Mon) — AN", "29.12.26 (Tue) — FN", "16.01.26 (Sat) — FN"], "82. Dr ARCHANA S NAIR": ["15.12.26 (Tue) — FN", "16.12.26 (Wed) — AN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "27.01.26 (Wed) — FN"], "83. Prof. PRASOON P": ["11.12.26 (Fri) — AN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "16.01.26 (Sat) — FN", "25.01.26 (Mon) — FN"], "84. DR. MANJULA DEVI M": ["01.12.26 (Tue) — AN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "18.01.26 (Mon) — FN"], "85. DR. REVUPRIYA M R": ["01.12.26 (Tue) — AN", "08.12.26 (Tue) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "12.02.26 (Fri) — AN"], "86. DR. SANDHYA C P": ["07.12.26 (Mon) — AN", "14.12.26 (Mon) — AN", "17.12.26 (Thurs) — FN", "29.12.26 (Tue) — FN", "22.01.26 (Fri) — FN"], "87. Prof. JOSEPH JOHN THARAKAN": ["14.12.26 (Mon) — FN", "29.12.26 (Tue) — FN", "01.01.26 (Fri) — FN", "04.01.26 (Mon) — FN", "27.01.26 (Wed) — FN"], "88. Prof. THASLEEMA NAZAR": ["27.11.26 (Fri) — AN", "17.12.26 (Thurs) — FN", "28.12.26 (Mon) — FN", "29.12.26 (Tue) — FN", "05.01.26 (Tue) — FN"], "89. Dr. ANILKUMAR E N": ["23.11.26 (Mon) — FN", "30.11.26 (Mon) — AN"], "90. Sri. VIBIN KUMAR C S": ["25.11.26 (Wed) — FN", "02.12.26 (Wed) — AN", "03.12.26 (Thur) — AN", "17.12.26 (Thurs) — FN", "19.01.26 (Tue) — AN"], "91. Sri. GOPAKUMAR G": ["25.11.26 (Wed) — FN", "27.11.26 (Fri) — AN", "01.12.26 (Tue) — AN", "31.12.26 (Thur) — FN", "19.01.26 (Tue) — FN"], "92. Dr. SHEEJA V": ["11.12.26 (Fri) — AN", "14.12.26 (Mon) — FN", "17.12.26 (Thurs) — FN", "19.01.26 (Tue) — AN"], "93. Sri. DEEPAK SEN J S": ["23.11.26 (Mon) — FN", "27.11.26 (Fri) — AN", "03.12.26 (Thur) — AN", "08.12.26 (Tue) — AN", "19.01.26 (Tue) — FN"]}, "bySession": {"23.11.26 (Mon) — FN": ["5. Dr. REENA M ROY", "10. Dr. DEEPESH EDWIN", "14. Prof. ASWATHY DEVI T", "17. Sri. VIKAS V R", "20. Smt. SHIJITHA R", "21. Smt. SMITHA S", "25. Prof. ASWATHY S", "34. Dr. LEKSHMY P L", "37. Prof. SUMIMOL L", "45. Prof. ARATHY S S", "65. Prof. RESHMA J P", "67. Prof. APARNA V DEV", "72. Prof. DEEPTHY B L", "74. Prof. RESHMA M", "89. Dr. ANILKUMAR E N", "93. Sri. DEEPAK SEN J S"], "23.11.26 (Mon) — AN": ["11. Prof. JAYARESMI J", "12. Prof. NISHANTH AUGUSTINE", "13. Prof. RENSI SAM MATHEW", "19. Sri. SEBASTIAN T V", "42. Smt. RAJAPRIYA R", "45. Prof. ARATHY S S", "48. Prof. DHANYA S", "49. Prof. SREEJA KUMARI JAYA", "51. Prof. PRIYANKA S R", "55. Prof. JIJI C T", "59. Prof. ANJU L V", "60. Prof. KAVYA MOHAN", "61. Prof. TEENU S JOHN", "62. Prof. ARYA J G", "67. Prof. APARNA V DEV", "69. Prof. RADHIKA NAIR N J", "71. Sri. SREENIVASAN V R"], "24.11.26 (Tue) — AN": ["1. Dr. DEEPAMBIKA V A", "9. Prof. HEMA S", "10. Dr. DEEPESH EDWIN", "12. Prof. NISHANTH AUGUSTINE", "13. Prof. RENSI SAM MATHEW", "15. Dr. NAVEEN S", "16. Sri. DINESHKUMAR D J", "19. Sri. SEBASTIAN T V", "22. Dr. SAMLA SALIM", "28. Dr. SMITHA E S", "32. Dr. DILEEP V K", "40. Prof, SANDEEP CHANDRAN", "44. Prof. REHNA R S", "45. Prof. ARATHY S S", "52. Prof. AMITHA K A", "67. Prof. APARNA V DEV", "70. Dr. BEENA MOL M"], "25.11.26 (Wed) — FN": ["2. Dr. RESMI R", "7. Dr. KANJANA G", "8. Prof. MOHAMMED SHAFFI", "12. Prof. NISHANTH AUGUSTINE", "29. Dr. SUMITHRA M D", "38. Prof. GISHA G S", "45. Prof. ARATHY S S", "46. Prof. BIJI S L", "50. Prof. POORNIMA E", "56. Prof. SHAMEEMA LATHEEF", "57. Prof. DIVYA R S", "65. Prof. RESHMA J P", "67. Prof. APARNA V DEV", "70. Dr. BEENA MOL M", "90. Sri. VIBIN KUMAR C S", "91. Sri. GOPAKUMAR G"], "26.11.26 (Thur) — AN": ["3. Dr. MERIL CYRIAC", "10. Dr. DEEPESH EDWIN", "15. Dr. NAVEEN S", "16. Sri. DINESHKUMAR D J", "30. Dr. ANITHAKUMARI S", "33. Prof. SEENA THOMAS", "35. Prof. JANISHA A", "39. Prof. PRAJISHA K", "45. Prof. ARATHY S S", "47. Prof. ATHIRA A P", "48. Prof. DHANYA S", "56. Prof. SHAMEEMA LATHEEF", "57. Prof. DIVYA R S", "66. Prof. NIKHILA A", "67. Prof. APARNA V DEV", "72. Prof. DEEPTHY B L", "76. Prof. NEEMA THERESE"], "27.11.26 (Fri) — FN": ["4. Dr. SUMA SEKHAR", "12. Prof. NISHANTH AUGUSTINE", "16. Sri. DINESHKUMAR D J", "19. Sri. SEBASTIAN T V", "25. Prof. ASWATHY S", "26. Prof. SOUMYA S M", "31. Dr. SMITHA VAS", "43. Smt. SHEEJA D", "45. Prof. ARATHY S S", "46. Prof. BIJI S L", "51. Prof. PRIYANKA S R", "53. Prof. ANSILA HENDERSON", "55. Prof. JIJI C T", "65. Prof. RESHMA J P", "67. Prof. APARNA V DEV", "71. Sri. SREENIVASAN V R"], "27.11.26 (Fri) — AN": ["6. Prof. SMITHA K S", "8. Prof. MOHAMMED SHAFFI", "10. Dr. DEEPESH EDWIN", "14. Prof. ASWATHY DEVI T", "23. Prof. PARVATHI V S", "54. Prof. VIJITHRA V K", "57. Prof. DIVYA R S", "61. Prof. TEENU S JOHN", "62. Prof. ARYA J G", "64. Prof. ARUNIMA AJEESH", "66. Prof. NIKHILA A", "73. Prof. ABDUL RAHIM S R", "74. Prof. RESHMA M", "76. Prof. NEEMA THERESE", "88. Prof. THASLEEMA NAZAR", "91. Sri. GOPAKUMAR G", "93. Sri. DEEPAK SEN J S"], "30.11.26 (Mon) — AN": ["5. Dr. REENA M ROY", "7. Dr. KANJANA G", "9. Prof. HEMA S", "19. Sri. SEBASTIAN T V", "37. Prof. SUMIMOL L", "39. Prof. PRAJISHA K", "42. Smt. RAJAPRIYA R", "43. Smt. SHEEJA D", "44. Prof. REHNA R S", "50. Prof. POORNIMA E", "52. Prof. AMITHA K A", "55. Prof. JIJI C T", "58. Prof. RAJI P S", "59. Prof. ANJU L V", "62. Prof. ARYA J G", "72. Prof. DEEPTHY B L", "89. Dr. ANILKUMAR E N"], "01.12.26 (Tue) — AN": ["13. Prof. RENSI SAM MATHEW", "15. Dr. NAVEEN S", "16. Sri. DINESHKUMAR D J", "22. Dr. SAMLA SALIM", "24. Prof. JAGANATH L C", "26. Prof. SOUMYA S M", "34. Dr. LEKSHMY P L", "39. Prof. PRAJISHA K", "44. Prof. REHNA R S", "47. Prof. ATHIRA A P", "50. Prof. POORNIMA E", "53. Prof. ANSILA HENDERSON", "73. Prof. ABDUL RAHIM S R", "78. Prof. REJITHA S R", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "91. Sri. GOPAKUMAR G"], "02.12.26 (Wed) — FN": ["5. Dr. REENA M ROY", "7. Dr. KANJANA G", "9. Prof. HEMA S", "11. Prof. JAYARESMI J", "13. Prof. RENSI SAM MATHEW", "14. Prof. ASWATHY DEVI T", "15. Dr. NAVEEN S", "18. Sri. ABDUL SALAM K Y", "27. Prof. CHITHRA A S", "32. Dr. DILEEP V K", "34. Dr. LEKSHMY P L", "38. Prof. GISHA G S", "40. Prof, SANDEEP CHANDRAN", "43. Smt. SHEEJA D", "47. Prof. ATHIRA A P", "49. Prof. SREEJA KUMARI JAYA", "75. Prof. PB MUHAMMAD ANAS"], "02.12.26 (Wed) — AN": ["8. Prof. MOHAMMED SHAFFI", "44. Prof. REHNA R S", "46. Prof. BIJI S L", "52. Prof. AMITHA K A", "55. Prof. JIJI C T", "58. Prof. RAJI P S", "59. Prof. ANJU L V", "61. Prof. TEENU S JOHN", "62. Prof. ARYA J G", "64. Prof. ARUNIMA AJEESH", "66. Prof. NIKHILA A", "70. Dr. BEENA MOL M", "73. Prof. ABDUL RAHIM S R", "76. Prof. NEEMA THERESE", "78. Prof. REJITHA S R", "80. Dr. KEERTHI V S", "90. Sri. VIBIN KUMAR C S"], "03.12.26 (Thur) — AN": ["8. Prof. MOHAMMED SHAFFI", "11. Prof. JAYARESMI J", "16. Sri. DINESHKUMAR D J", "17. Sri. VIKAS V R", "18. Sri. ABDUL SALAM K Y", "20. Smt. SHIJITHA R", "23. Prof. PARVATHI V S", "27. Prof. CHITHRA A S", "32. Dr. DILEEP V K", "33. Prof. SEENA THOMAS", "38. Prof. GISHA G S", "40. Prof, SANDEEP CHANDRAN", "47. Prof. ATHIRA A P", "57. Prof. DIVYA R S", "60. Prof. KAVYA MOHAN", "90. Sri. VIBIN KUMAR C S", "93. Sri. DEEPAK SEN J S"], "04.12.26 (Fri) — FN": [], "05.12.26 (Sat) — AN": ["2. Dr. RESMI R", "5. Dr. REENA M ROY", "7. Dr. KANJANA G", "13. Prof. RENSI SAM MATHEW", "22. Dr. SAMLA SALIM", "25. Prof. ASWATHY S", "27. Prof. CHITHRA A S", "33. Prof. SEENA THOMAS", "38. Prof. GISHA G S", "40. Prof, SANDEEP CHANDRAN", "42. Smt. RAJAPRIYA R", "46. Prof. BIJI S L", "49. Prof. SREEJA KUMARI JAYA", "51. Prof. PRIYANKA S R", "53. Prof. ANSILA HENDERSON", "55. Prof. JIJI C T", "61. Prof. TEENU S JOHN"], "07.12.26 (Mon) — AN": ["6. Prof. SMITHA K S", "32. Dr. DILEEP V K", "34. Dr. LEKSHMY P L", "37. Prof. SUMIMOL L", "39. Prof. PRAJISHA K", "52. Prof. AMITHA K A", "53. Prof. ANSILA HENDERSON", "56. Prof. SHAMEEMA LATHEEF", "58. Prof. RAJI P S", "59. Prof. ANJU L V", "61. Prof. TEENU S JOHN", "62. Prof. ARYA J G", "64. Prof. ARUNIMA AJEESH", "66. Prof. NIKHILA A", "77. Prof.ASHLY JOY", "86. DR. SANDHYA C P"], "08.12.26 (Tue) — AN": ["11. Prof. JAYARESMI J", "17. Sri. VIKAS V R", "18. Sri. ABDUL SALAM K Y", "20. Smt. SHIJITHA R", "21. Smt. SMITHA S", "23. Prof. PARVATHI V S", "26. Prof. SOUMYA S M", "50. Prof. POORNIMA E", "51. Prof. PRIYANKA S R", "54. Prof. VIJITHRA V K", "69. Prof. RADHIKA NAIR N J", "71. Sri. SREENIVASAN V R", "77. Prof.ASHLY JOY", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "93. Sri. DEEPAK SEN J S"], "09.12.26 (Wed) — AN": ["9. Prof. HEMA S", "14. Prof. ASWATHY DEVI T", "26. Prof. SOUMYA S M", "55. Prof. JIJI C T", "72. Prof. DEEPTHY B L"], "10.12.26 (Thurs) — AN": ["35. Prof. JANISHA A", "42. Smt. RAJAPRIYA R", "44. Prof. REHNA R S", "48. Prof. DHANYA S", "60. Prof. KAVYA MOHAN"], "11.12.26 (Fri) — AN": ["83. Prof. PRASOON P", "92. Dr. SHEEJA V"], "14.12.26 (Mon) — FN": ["15. Dr. NAVEEN S", "17. Sri. VIKAS V R", "18. Sri. ABDUL SALAM K Y", "19. Sri. SEBASTIAN T V", "20. Smt. SHIJITHA R", "21. Smt. SMITHA S", "24. Prof. JAGANATH L C", "33. Prof. SEENA THOMAS", "71. Sri. SREENIVASAN V R", "78. Prof. REJITHA S R", "80. Dr. KEERTHI V S", "81. Prof. LEKSHMI S", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "87. Prof. JOSEPH JOHN THARAKAN", "92. Dr. SHEEJA V"], "14.12.26 (Mon) — AN": ["6. Prof. SMITHA K S", "86. DR. SANDHYA C P"], "15.12.26 (Tue) — FN": ["77. Prof.ASHLY JOY", "82. Dr ARCHANA S NAIR"], "16.12.26 (Wed) — AN": ["72. Prof. DEEPTHY B L", "82. Dr ARCHANA S NAIR"], "17.12.26 (Thurs) — FN": ["1. Dr. DEEPAMBIKA V A", "21. Smt. SMITHA S", "23. Prof. PARVATHI V S", "76. Prof. NEEMA THERESE", "77. Prof.ASHLY JOY", "78. Prof. REJITHA S R", "80. Dr. KEERTHI V S", "81. Prof. LEKSHMI S", "82. Dr ARCHANA S NAIR", "83. Prof. PRASOON P", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "86. DR. SANDHYA C P", "88. Prof. THASLEEMA NAZAR", "90. Sri. VIBIN KUMAR C S", "92. Dr. SHEEJA V"], "18.12.26 (Fri) — AN": ["3. Dr. MERIL CYRIAC", "79. Prof. DEEPTHI CHANDRAN R"], "28.12.26 (Mon) — FN": ["4. Dr. SUMA SEKHAR", "88. Prof. THASLEEMA NAZAR"], "28.12.26 (Mon) — AN": ["28. Dr. SMITHA E S", "81. Prof. LEKSHMI S"], "29.12.26 (Tue) — FN": ["29. Dr. SUMITHRA M D", "73. Prof. ABDUL RAHIM S R", "75. Prof. PB MUHAMMAD ANAS", "76. Prof. NEEMA THERESE", "77. Prof.ASHLY JOY", "78. Prof. REJITHA S R", "79. Prof. DEEPTHI CHANDRAN R", "80. Dr. KEERTHI V S", "81. Prof. LEKSHMI S", "82. Dr ARCHANA S NAIR", "83. Prof. PRASOON P", "84. DR. MANJULA DEVI M", "85. DR. REVUPRIYA M R", "86. DR. SANDHYA C P", "87. Prof. JOSEPH JOHN THARAKAN", "88. Prof. THASLEEMA NAZAR"], "30.12.26 (Wed) — FN": ["30. Dr. ANITHAKUMARI S", "70. Dr. BEENA MOL M"], "30.12.26 (Wed) — AN": ["31. Dr. SMITHA VAS", "74. Prof. RESHMA M"], "31.12.26 (Thur) — FN": ["14. Prof. ASWATHY DEVI T", "18. Sri. ABDUL SALAM K Y", "20. Smt. SHIJITHA R", "22. Dr. SAMLA SALIM", "24. Prof. JAGANATH L C", "26. Prof. SOUMYA S M", "33. Prof. SEENA THOMAS", "35. Prof. JANISHA A", "38. Prof. GISHA G S", "40. Prof, SANDEEP CHANDRAN", "49. Prof. SREEJA KUMARI JAYA", "54. Prof. VIJITHRA V K", "57. Prof. DIVYA R S", "60. Prof. KAVYA MOHAN", "66. Prof. NIKHILA A", "91. Sri. GOPAKUMAR G"], "01.01.26 (Fri) — FN": ["32. Dr. DILEEP V K", "87. Prof. JOSEPH JOHN THARAKAN"], "04.01.26 (Mon) — FN": ["73. Prof. ABDUL RAHIM S R", "87. Prof. JOSEPH JOHN THARAKAN"], "05.01.26 (Tue) — FN": ["5. Dr. REENA M ROY", "7. Dr. KANJANA G", "9. Prof. HEMA S", "11. Prof. JAYARESMI J", "23. Prof. PARVATHI V S", "27. Prof. CHITHRA A S", "41. Sri. ANIL KUMAR T K", "48. Prof. DHANYA S", "51. Prof. PRIYANKA S R", "56. Prof. SHAMEEMA LATHEEF", "58. Prof. RAJI P S", "59. Prof. ANJU L V", "62. Prof. ARYA J G", "65. Prof. RESHMA J P", "74. Prof. RESHMA M", "88. Prof. THASLEEMA NAZAR"], "06.01.26 (Wed) — FN": ["66. Prof. NIKHILA A"], "07.01.26 (Thu) — FN": ["34. Dr. LEKSHMY P L", "39. Prof. PRAJISHA K"], "07.01.26 (Thu) — AN": ["35. Prof. JANISHA A", "42. Smt. RAJAPRIYA R"], "08.01.26 (Fri) — FN": ["6. Prof. SMITHA K S", "12. Prof. NISHANTH AUGUSTINE"], "11.01.26 (Mon) — FN": ["8. Prof. MOHAMMED SHAFFI", "10. Dr. DEEPESH EDWIN"], "11.01.26 (Mon) — AN": ["21. Smt. SMITHA S", "25. Prof. ASWATHY S"], "12.01.26 (Tue) — FN": ["24. Prof. JAGANATH L C", "37. Prof. SUMIMOL L"], "13.01.26 (Wed) — FN": ["37. Prof. SUMIMOL L", "41. Sri. ANIL KUMAR T K"], "13.01.26 (Wed) — AN": ["17. Sri. VIKAS V R", "27. Prof. CHITHRA A S", "47. Prof. ATHIRA A P", "49. Prof. SREEJA KUMARI JAYA"], "14.01.26 (Thu) — FN": ["69. Prof. RADHIKA NAIR N J", "76. Prof. NEEMA THERESE"], "15.01.26 (Fri) — FN": ["70. Dr. BEENA MOL M", "71. Sri. SREENIVASAN V R"], "15.01.26 (Fri) — AN": ["75. Prof. PB MUHAMMAD ANAS", "80. Dr. KEERTHI V S"], "16.01.26 (Sat) — FN": ["81. Prof. LEKSHMI S", "83. Prof. PRASOON P"], "18.01.26 (Mon) — FN": ["56. Prof. SHAMEEMA LATHEEF", "84. DR. MANJULA DEVI M"], "19.01.26 (Tue) — FN": ["91. Sri. GOPAKUMAR G", "93. Sri. DEEPAK SEN J S"], "19.01.26 (Tue) — AN": ["90. Sri. VIBIN KUMAR C S", "92. Dr. SHEEJA V"], "20.01.26 (Wed) — FN": ["24. Prof. JAGANATH L C", "41. Sri. ANIL KUMAR T K"], "21.01.26 (Thu) — FN": ["54. Prof. VIJITHRA V K", "58. Prof. RAJI P S"], "21.01.26 (Thu) — AN": ["26. Prof. SOUMYA S M", "56. Prof. SHAMEEMA LATHEEF"], "22.01.26 (Fri) — FN": ["59. Prof. ANJU L V", "86. DR. SANDHYA C P"], "25.01.26 (Mon) — FN": ["74. Prof. RESHMA M", "83. Prof. PRASOON P"], "27.01.26 (Wed) — FN": ["82. Dr ARCHANA S NAIR", "87. Prof. JOSEPH JOHN THARAKAN"], "29.01.26 (Fri) — FN": ["64. Prof. ARUNIMA AJEESH"], "01.02.26 (Mon) — FN": ["22. Dr. SAMLA SALIM", "25. Prof. ASWATHY S"], "02.02.26 (Tue) — AN": ["61. Prof. TEENU S JOHN", "65. Prof. RESHMA J P"], "04.02.26 (Thu) — AN": ["27. Prof. CHITHRA A S", "48. Prof. DHANYA S"], "06.02.26 (Sat) — AN": ["60. Prof. KAVYA MOHAN", "64. Prof. ARUNIMA AJEESH"], "08.02.26 (Mon) — AN": ["41. Sri. ANIL KUMAR T K", "54. Prof. VIJITHRA V K"], "10.02.26 (Wed) — AN": ["6. Prof. SMITHA K S", "52. Prof. AMITHA K A"], "12.02.26 (Fri) — AN": ["75. Prof. PB MUHAMMAD ANAS", "85. DR. REVUPRIYA M R"], "15.02.26 (Mon) — AN": ["41. Sri. ANIL KUMAR T K", "46. Prof. BIJI S L"]}};
+  const facSelect = document.getElementById("facultySelect");
+  const sessionSelect = document.getElementById("sessionSelect");
+
+  function populateFacultyDropdown(filterText = "") {
+    const currentVal = facSelect.value;
+    facSelect.innerHTML = '<option value="">-- Select Invigilator --</option>';
+    const query = filterText.toLowerCase().trim();
+    scheduleData.facultyList
+      .filter(name => name.toLowerCase().includes(query))
+      .forEach(name => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        facSelect.appendChild(opt);
+      });
+    if ([...facSelect.options].some(o => o.value === currentVal)) {
+      facSelect.value = currentVal;
+    }
+  }
+
+  function filterFacultyDropdown() {
+    populateFacultyDropdown(document.getElementById("facultySearch").value);
+    showFacultyDuties();
+  }
+
+  scheduleData.sessionList.forEach(sess => {
+    const opt = document.createElement("option");
+    opt.value = sess;
+    opt.textContent = sess;
+    sessionSelect.appendChild(opt);
+  });
+
+  populateFacultyDropdown();
+
+  function showFacultyDuties() {
+    const fac = facSelect.value;
+    const resDiv = document.getElementById("facultyResult");
+    if (!fac) { resDiv.innerHTML = ""; return; }
+    const duties = scheduleData.byFaculty[fac] || [];
+    if (duties.length === 0) {
+      resDiv.innerHTML = `<p class="empty">No invigilation duties assigned to ${fac}.</p>`;
+    } else {
+      const items = duties.map((d, i) => `<li><strong>${i + 1}.</strong> ${d}</li>`).join("");
+      resDiv.innerHTML = `<span class="badge">Total Duties: ${duties.length}</span><ul>${items}</ul>`;
+    }
+  }
+
+  function showSessionFaculty() {
+    const sess = sessionSelect.value;
+    const resDiv = document.getElementById("sessionResult");
+    if (!sess) { resDiv.innerHTML = ""; return; }
+    const facs = scheduleData.bySession[sess] || [];
+    if (facs.length === 0) {
+      resDiv.innerHTML = `<p class="empty">No invigilators assigned for ${sess}.</p>`;
+    } else {
+      const items = facs.map((f, i) => `<li><strong>${i + 1}.</strong> ${f}</li>`).join("");
+      resDiv.innerHTML = `<span class="badge">Invigilators Assigned: ${facs.length}</span><ul>${items}</ul>`;
+    }
+  }
+</script>
+</body>
+</html>
